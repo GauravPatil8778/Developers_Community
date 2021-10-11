@@ -1,0 +1,116 @@
+//src/com.example.My Application/MainActivity.java.
+
+package com.example.saira_000.myapplication;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class MainActivity extends AppCompatActivity {
+   Button b1,b2;
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+
+      b1=(Button)findViewById(R.id.button);
+      b1.setOnClickListener(new View.OnClickListener() {
+
+         @Override
+         public void onClick(View v) {
+            Intent i = new Intent(android.content.Intent.ACTION_VIEW, 
+               Uri.parse("http://www.example.com"));
+            startActivity(i);
+         }
+      });
+
+      b2=(Button)findViewById(R.id.button2);
+      b2.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+            Intent i = new Intent(android.content.Intent.ACTION_VIEW,
+               Uri.parse("tel:9510300000"));
+            startActivity(i);
+         }
+      });
+   }
+}
+
+
+
+//res/layout/activity_main.xml
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools" 
+   android:layout_width="match_parent"
+   android:layout_height="match_parent" 
+   android:paddingLeft="@dimen/activity_horizontal_margin"
+   android:paddingRight="@dimen/activity_horizontal_margin"
+   android:paddingTop="@dimen/activity_vertical_margin"
+   android:paddingBottom="@dimen/activity_vertical_margin" 
+   tools:context=".MainActivity">
+   
+   <TextView
+      android:id="@+id/textView1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Intent Example"
+      android:layout_alignParentTop="true"
+      android:layout_centerHorizontal="true"
+      android:textSize="30dp" />
+      
+   <TextView
+      android:id="@+id/textView2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Tutorials point"
+      android:textColor="#ff87ff09"
+      android:textSize="30dp"
+      android:layout_below="@+id/textView1"
+      android:layout_centerHorizontal="true" />
+      
+   <ImageButton
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/imageButton"
+      android:src="@drawable/abc"
+      android:layout_below="@+id/textView2"
+      android:layout_centerHorizontal="true" />
+      
+   <EditText
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/editText"
+      android:layout_below="@+id/imageButton"
+      android:layout_alignRight="@+id/imageButton"
+      android:layout_alignEnd="@+id/imageButton" />
+      
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Start Browser"
+      android:id="@+id/button"
+      android:layout_alignTop="@+id/editText"
+      android:layout_alignRight="@+id/textView1"
+      android:layout_alignEnd="@+id/textView1"
+      android:layout_alignLeft="@+id/imageButton"
+      android:layout_alignStart="@+id/imageButton" />
+      
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Start Phone"
+      android:id="@+id/button2"
+      android:layout_below="@+id/button"
+      android:layout_alignLeft="@+id/button"
+      android:layout_alignStart="@+id/button"
+      android:layout_alignRight="@+id/textView2"
+      android:layout_alignEnd="@+id/textView2" />
+</RelativeLayout>
